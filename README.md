@@ -1,8 +1,8 @@
 # ai_models
 
-This project goes through creating AI models from scratch using Tensorflow, PyTorch, and Hugging Face libraries.
+This project goes through creating AI models from scratch using TensorFlow, PyTorch, and Hugging Face libraries.
 
-# Tensorflow and PyTorch
+# TensorFlow and PyTorch
 
 Setting up virtual environment
 ```
@@ -10,16 +10,53 @@ python3 -m venv .venv_tf_pt
 source .venv_tf_pt/bin/activate
 ```
 
-## Tensorflow
-Create Tensorflow model
+## TensorFlow
+###  Part 1: Basic Model
+Create TensorFlow model with 2 features
 ```
 python3 main_tf.py
 ```
 
-Run Tensorflow tests
+Run TensorFlow tests
 ```
-python3 test_model_tf.py
+python3 test_main_tf.py
 ```
+### Part 2: Multi-Class Classification and Fine-Tuning
+#### Multi-Class Classification Model
+Input: 4 features (fur length, tail type, ear shape, speed)<br>
+Output: Classifies between cat, dog, fox, rabbit<br>
+Created from scratch (not fine-tuned)
+```
+python3 main_tf_categorical.py
+```
+
+Test model
+```
+python3 test_main_tf_categorical.py
+```
+#### Fine-Tuning by Adding Layers
+Takes the pre-trained 2-feature model and adds extra layers
+Expands output categories to cat, dog, fox, rabbit
+```
+python3 main_tf_finetune_add_layers.py
+```
+
+Test model
+```
+python3 test_main_tf_finetune_add_layers.py
+```
+#### Full Fine-Tuning (Re-training All Layers)
+Takes the original model and unfreezes all layers for full training
+Retains 2 input features but modifies layers to improve performance
+```
+python3 main_tf_finetune_full.py
+```
+
+Test model
+```
+python3 test_main_tf_finetune_full.py
+```
+
 
 ## PyTorch
 Create PyTorch model
@@ -27,13 +64,13 @@ Create PyTorch model
 python3 main_pt.py
 ```
 
-Run Tensorflow tests
+Run TensorFlow tests
 ```
-python3 test_model_pt.py
+python3 test_main_pt.py
 ```
 
 
-# Hugging Face
+# Hugging Face Part 1
 
 Setting up virtual environment
 ```
@@ -48,5 +85,5 @@ python3 main_hf.py
 
 Run Hugging Face tests
 ```
-python3 test_model_hf.py
+python3 test_main_hf.py
 ```
